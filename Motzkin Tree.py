@@ -22,18 +22,18 @@ def mot2(j):
     if j == 0:
         result.append('leaf')
         final.append(result)
-        return result
+        #return result
     else:
         for v in mot2(j-1):
             result.append(tuple(('unary',v)))
-            print("Value of v", v)
-            print("Result in v", result)
+            #print("Value of v", v)
+            #print("Result in v", result)
         for k in range(0, j-1):
             for l in mot2(k):
                 for r in mot2(j-2-k):
                     result.append(tuple(('binary',l,r)))
                     final.append(result)
-                    return result
+                    #return result
     final.append(result)
     return result
 def test(m):
@@ -41,8 +41,9 @@ def test(m):
         list(map(print,list(mot(n))))
 
 def test2(a):
-    print(mot2(a))
-    print(final)
+    for x in range(a+1):
+        print(mot2(x))
+    #print(final)
 
 
 if __name__ == '__main__':
